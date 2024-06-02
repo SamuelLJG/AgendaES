@@ -206,7 +206,7 @@ const displayCurrentWeather = (weather) => {
     if(horas >= 18 || horas <= 6){
          ddd = 'n'
     }
-    image.src = `images/${descricao_atual}${ddd}.svg`; // top
+    image.src = `https://samuelljg.github.io/AgendaES/images/${descricao_atual}${ddd}.svg`; // top
     nameVal.innerHTML = `Tempo Hoje em ${weather.name}, ES `;
     desc.innerHTML = `${descricao_atual}.`;
     temp.innerHTML = `${Math.round(weather.main.temp)}°`;
@@ -299,7 +299,7 @@ const displayForecast = (forecastData) => {
 
         if (groupedByDate[date][0]) {
             const imageMadrugada = document.createElement('p');
-            imageMadrugada.innerHTML = `<img src='images/${groupedByDate[date][0].weather[0].description}n.svg'> <br> Madrugada`; // no src mudar para o icone correspondente - lua
+            imageMadrugada.innerHTML = `<img src='https://samuelljg.github.io/AgendaES/images/${groupedByDate[date][0].weather[0].description}n.svg'> <br> Madrugada`; // no src mudar para o icone correspondente - lua
             imageMadrugada.classList.add('imageMadrugada');
             cc3.appendChild(imageMadrugada);
         }
@@ -307,7 +307,7 @@ const displayForecast = (forecastData) => {
         if (groupedByDate[date][2]) {
             
             const popElem2 = document.createElement('p');
-            popElem2.innerHTML = `<img class="weather-image" src="images/${groupedByDate[date][2].weather[0].description}d.svg">`;
+            popElem2.innerHTML = `<img class="weather-image" src="https://samuelljg.github.io/AgendaES/images/${groupedByDate[date][2].weather[0].description}d.svg">`;
             cc.appendChild(popElem2);
             const tempElem2 = document.createElement('p');
             const tempElemM = document.createElement('div');
@@ -319,13 +319,13 @@ const displayForecast = (forecastData) => {
             tempElemM.appendChild(tempElem);
 
             const imageManha = document.createElement('p');
-            imageManha.innerHTML = `<img src='images/${groupedByDate[date][2].weather[0].description}d.svg'> <br> Manhã`; // no src mudar para o icone certo correspondente - sol
+            imageManha.innerHTML = `<img src='https://samuelljg.github.io/AgendaES/images/${groupedByDate[date][2].weather[0].description}d.svg'> <br> Manhã`; // no src mudar para o icone certo correspondente - sol
             imageManha.classList.add('imageManha');
             cc3.appendChild(imageManha);
         }else{
             if (groupedByDate[date][0]) {
                 const popElem2 = document.createElement('p');
-                popElem2.innerHTML = `<img class="weather-image" src="images/${groupedByDate[date][0].weather[0].description}d.svg">`;
+                popElem2.innerHTML = `<img class="weather-image" src="https://samuelljg.github.io/AgendaES/images/${groupedByDate[date][0].weather[0].description}d.svg">`;
                 cc.appendChild(popElem2);
                 const tempElem2 = document.createElement('p');
                 const tempElemM = document.createElement('div');
@@ -341,14 +341,14 @@ const displayForecast = (forecastData) => {
 
         if (groupedByDate[date][4]) {
             const imageTarde = document.createElement('p');
-            imageTarde.innerHTML = `<img src='images/${groupedByDate[date][4].weather[0].description}d.svg'> <br> Tarde`; // no src mudar para o icone certo correspondente - sol
+            imageTarde.innerHTML = `<img src='https://samuelljg.github.io/AgendaES/images/${groupedByDate[date][4].weather[0].description}d.svg'> <br> Tarde`; // no src mudar para o icone certo correspondente - sol
             imageTarde.classList.add('imageTarde');
             cc3.appendChild(imageTarde);
         }
 
         if (groupedByDate[date][6]) {
             const imageNoite = document.createElement('p');
-            imageNoite.innerHTML = `<img src='images/${groupedByDate[date][6].weather[0].description}n.svg'> <br> Noite`; // no src mudar para o icone certo correspondente - lua
+            imageNoite.innerHTML = `<img src='https://samuelljg.github.io/AgendaES/images/${groupedByDate[date][6].weather[0].description}n.svg'> <br> Noite`; // no src mudar para o icone certo correspondente - lua
             imageNoite.classList.add('imageNoite');
             cc3.appendChild(imageNoite);
         }
@@ -379,7 +379,7 @@ const displayForecast = (forecastData) => {
         cc.appendChild(description_weather_day);
         
         const button = document.createElement('button');
-        button.innerHTML = '<img src="images/arrow-down-338-svgrepo-com.svg">' // funcao para montar a descricao de clima do dia
+        button.innerHTML = '<img src="https://samuelljg.github.io/AgendaES/images/arrow-down-338-svgrepo-com.svg">' // funcao para montar a descricao de clima do dia
         button.classList.add('button');
         cc.appendChild(button);
         const items2 = document.querySelectorAll('.forecastItem');
