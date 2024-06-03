@@ -170,10 +170,11 @@ function getDadosFromForecastToCoffee(all_forecast_data) {
     console.log(dados_for_coffee);
 
     display_media_temp_cafe.innerHTML = `Média de temperatura nos próximos 5 dias: ${forecast_media_temp_cafe}°`;
-    display_media_umid_cafe.innerHTML = `Média de umidade nos próximos 5 dias: ${forecast_media_umid_cafe}%`;
+    display_media_umid_cafe.innerHTML = `${forecast_media_umid_cafe}`;
     const ff2 = `${forecast_media_pop_cafe}`
     display_media_pop_cafe.innerHTML = `Volume de chuva nos próximos 5 dias: ${ff2.slice(0,4)}mm`;
-
+    document.querySelector('.umid2').style.bottom = `calc(${forecast_media_umid_cafe}% - 8px)`
+    document.querySelector('.umid').style.height = `${forecast_media_umid_cafe}%`
     return dados_for_coffee;
 }
 
@@ -368,7 +369,7 @@ const displayForecast = (forecastData) => {
 
         const rainIcon = document.createElement('div');
         const ff = `${forecastDate[date].max_chuva_mm}`
-        rainIcon.innerHTML = ` <img width='35px' style='margin-bottom:-10px;' src='https://samuelljg.github.io/AgendaES/rain-svgrepo-com (3).svg'> ${forecastDate[date].max_pop}% - ${ff.slice(0,4)}mm`;
+        rainIcon.innerHTML = ` <img width='35px' style='margin-bottom:-10px;' src='https://samuelljg.github.io/AgendaES/images/rain-svgrepo-com (3).svg'> ${forecastDate[date].max_pop}% - ${ff.slice(0,4)}mm`;
         rainIcon.classList.add('rainIcon');
         rainDiv.appendChild(rainIcon);
 

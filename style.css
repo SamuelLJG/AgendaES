@@ -136,11 +136,14 @@ main {
 }
 
 .forecastItem2 {
-    display: none;
+    max-height: 0px;
+    overflow: hidden;
+    transition: .4s;
 }
 
 .forecastItem2.mostrar {
-    display: block;
+    max-height: 187px;
+    transition: .4s;
 }
 
 .rainDiv {

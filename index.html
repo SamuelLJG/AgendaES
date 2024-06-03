@@ -143,10 +143,10 @@
                 <h2 class="temp" style="font-size: 55px; font-family: Roboto; font-weight: 400; letter-spacing: -2px;"></h2>
                 <div>
                     <div style="display: flex;">
-                        <img src="https://samuelljg.github.io/AgendaES/max.svg" alt=""><div class="tempMax" style="font-size: 13px;"></div>
+                        <img src="https://samuelljg.github.io/AgendaES/images/max.svg" alt=""><div class="tempMax" style="font-size: 13px;"></div>
                     </div>
                     <div style="display: flex;">
-                        <img src="https://samuelljg.github.io/AgendaES/min.svg" alt=""><div class="tempMin" style="font-size: 13px;"></div>
+                        <img src="https://samuelljg.github.io/AgendaES/images/min.svg" alt=""><div class="tempMin" style="font-size: 13px;"></div>
                     </div>   
                 </div>
             </div>
@@ -168,9 +168,35 @@
         <div style="background: white;
         background-size: 100% 100%; max-width: 800px; width: 100%;
         background-repeat: no-repeat; border-radius: 5px;">
+        <br>
+            <h2>Previsão Climática</h2>
+            <br>
             <p class="display_media_temp_cafe"></p>
-            <p class="display_media_umid_cafe"></p>
+            <div style="border-radius: 15px; display: inline-block; width: 130px; color: white; background:rgb(107, 124, 134); padding: 20px; text-align: left;">
+                <div style="font-weight: 500; font-family: Poppins;">Umidade Média</div>
+                <div style="display: flex; align-items: center; font-size: 10px; flex-direction: column; width: 100%; margin: 20px 0px;">
+                    
+                    100
+                    <div style="position: relative;">
+                        <div class="umid2" style=" left: -14px; position: absolute;">
+                            <img src="images/triangle-filled-svgrepo-com.svg" height="10px" width="10px" style="transform: rotate(90deg);" alt="">
+                        </div>
+                        <div style="width: 30px; height: 60px; border-radius: 50px; position: relative; overflow: hidden; background-color: rgb(255, 225, 125);">
+                            <div class="umid" style="width: 100%; bottom: 0; position: absolute; height: 80%; background-color:rgb(255, 184, 30) ;"></div>
+                        </div>
+                    </div>
+                    0
+                </div>
+                <div style="font-size: 12px ">
+                    <p class="display_media_umid_cafe" style="display: inline-block; font-size: 21px; font-family: Poppins; font-weight: 500;"></p>%
+                </div>
+                <p style="font-size: 12px; color: rgb(247, 247, 255);">Umidade média para os próximos 5 dias.</p>
+            </div>
+            
             <p class="display_media_pop_cafe"></p>
+            <br>
+            
+            <h2>Recomendações</h2>
         </div>
     </main>
     <br>
