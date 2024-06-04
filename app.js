@@ -47,7 +47,7 @@ function getDescriptionForecast(dados_forecast) {
 
         if (descricao === "nublado") {
             if (contagem[descricao].length > 1) {
-                descricao_total += `A ${periodosStr} serão nublados. `;
+                descricao_total += `A ${periodosStr} serão nubladas. `;
             } else {
                 descricao_total += `A ${periodosStr} será nublada. `;
             }
@@ -168,13 +168,145 @@ function getDadosFromForecastToCoffee(all_forecast_data) {
     };
 
     console.log(dados_for_coffee);
+    display_media_temp_cafe.innerHTML = `${forecast_media_temp_cafe}°c`;
+    display_media_umid_cafe.innerHTML = `${forecast_media_umid_cafe}%`;
+    function roundToDecimalPlaces(ff2, decimalPlaces) {
+        const factor = Math.pow(10, decimalPlaces);
+        return Math.round(ff2 * factor) / factor;
+      }
+      
+      let ff2 = forecast_media_pop_cafe
+      let rounded = roundToDecimalPlaces(ff2, 2);  
+    
+    display_media_pop_cafe.innerHTML = `${rounded}mm`;
+    const titleTemp1 = document.querySelector('.title-temperatura1');
+    const titleTemp2 = document.querySelector('.title-temperatura2');
+    const titleUmi1 = document.querySelector('.title-umidade1');
+    const titleUmi2 = document.querySelector('.title-umidade2');
+    const titleChuva1 = document.querySelector('.title-chuva1');
+    const titleChuva2 = document.querySelector('.title-chuva2');
+    const descTemp1 = document.querySelector('.desc-temperatura1');
+    const descTemp2 = document.querySelector('.desc-temperatura2');
+    const descChuva1 = document.querySelector('.desc-chuva1');
+    const descChuva2 = document.querySelector('.desc-chuva2');
+    const descUmi1 = document.querySelector('.desc-umidade1');
+    const descUmi2 = document.querySelector('.desc-umidade2');
+    if(forecast_media_temp_cafe < 15) {
+        descTemp1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal)"/>
+        </svg> Proteja as plantas de café contra o frio, considere usar coberturas ou aquecedores.`
+        document.documentElement.style.setProperty('--ideal', 'rgb(189, 107, 13)');
+        descTemp2.innerHTML = 'Evite podas durante períodos de frio intenso para não estressar as plantas.'
+        titleTemp2.innerHTML = 'Evitar Podas'
+    } else if (forecast_media_temp_cafe >= 15 && forecast_media_temp_cafe <= 20) {
+        descTemp1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal)"/>
+        </svg> Temperatura favorável ao crescimento vegetativo do café. Monitore regularmente.`
+        document.documentElement.style.setProperty('--ideal', 'rgb(171, 189, 13)');
+        descTemp2.innerHTML = 'Ótimo momento para a aplicação de fertilizantes foliares.'
+        titleTemp2.innerHTML = 'Aplicação de Fertilizantes'
+    } else if (forecast_media_temp_cafe > 20 && forecast_media_temp_cafe <= 25) {
+        descTemp1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal)"/>
+        </svg> Temperatura ideal para o crescimento e frutificação do café. Continue o monitoramento.`
+        document.documentElement.style.setProperty('--ideal', 'rgb(77, 189, 13)');
+        descTemp2.innerHTML = 'Verifique a presença de pragas e doenças, pois as condições são favoráveis ao desenvolvimento delas.'
+        titleTemp2.innerHTML = 'Monitoramento de Pragas'
+    } else if (forecast_media_temp_cafe > 25 && forecast_media_temp_cafe <= 30) {
+        descTemp1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal)"/>
+        </svg> Temperatura elevada. Garanta sombreamento adequado para as plantas de café.`
+        document.documentElement.style.setProperty('--ideal', 'rgb(189, 171, 13)');
+        descTemp2.innerHTML = 'Aumente a irrigação para compensar a evapotranspiração mais alta.'
+        titleTemp2.innerHTML = 'Aumento da Irrigação'
+    } else {
+        descTemp1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal)"/>
+        </svg> Temperatura muito alta. Tome medidas para proteger as plantas do estresse térmico.`
+        document.documentElement.style.setProperty('--ideal', 'rgb(189, 107, 13)');
+        descTemp2.innerHTML = 'Verifique frequentemente sinais de murcha e queimaduras nas folhas.'
+        titleTemp2.innerHTML = 'Monitoramento de Sinais de Estresse'
+    }
 
-    display_media_temp_cafe.innerHTML = `Média de temperatura nos próximos 5 dias: ${forecast_media_temp_cafe}°`;
-    display_media_umid_cafe.innerHTML = `${forecast_media_umid_cafe}`;
-    const ff2 = `${forecast_media_pop_cafe}`
-    display_media_pop_cafe.innerHTML = `Volume de chuva nos próximos 5 dias: ${ff2.slice(0,4)}mm`;
-    document.querySelector('.umid2').style.bottom = `calc(${forecast_media_umid_cafe}% - 8px)`
-    document.querySelector('.umid').style.height = `${forecast_media_umid_cafe}%`
+
+
+    if (forecast_media_umid_cafe < 40) {
+        descUmi1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal2)"/>
+        </svg> Umidade baixa detectada. Aumente a irrigação para evitar estresse hídrico nas plantas.`
+        document.documentElement.style.setProperty('--ideal2', 'rgb(189, 107, 13)');
+        descUmi2.innerHTML = "Adicione cobertura morta para ajudar a manter a umidade do solo."
+        titleUmi2.innerHTML = 'Uso de Cobertura Morta'
+      } else if (forecast_media_umid_cafe >= 40 && forecast_media_umid_cafe <= 60) {
+        descUmi1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal2)"/>
+        </svg> Umidade dentro do intervalo ideal. Mantenha o monitoramento regular.`
+        document.documentElement.style.setProperty('--ideal2', 'rgb(77, 189, 13)');
+        descUmi2.innerHTML = "Estas condições são boas para o desenvolvimento das plantas."
+        titleUmi2.innerHTML = 'Monitoramento Regular'
+      } else if (forecast_media_umid_cafe > 60 && forecast_media_umid_cafe <= 90) {
+        descUmi1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal2)"/>
+        </svg> Alta umidade detectada. Monitore o risco de doenças fúngicas e aplique fungicidas preventivos.`
+        document.documentElement.style.setProperty('--ideal2', 'rgb(171, 189, 13)');
+        descUmi2.innerHTML = "Garanta boa ventilação entre as plantas para reduzir a umidade relativa ao redor do folhagem."
+        titleUmi2.innerHTML = 'Ventilação'
+      } else {
+        descUmi1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal2)"/>
+        </svg> Umidade muito alta. Alto risco de doenças fúngicas. Intensifique o monitoramento e tratamentos preventivos.`
+        document.documentElement.style.setProperty('--ideal2', 'rgb(189, 107, 13)');
+        descUmi2.innerHTML = "Considere o uso de dessecantes ou ventiladores para reduzir a umidade ao redor das plantas."
+        titleUmi2.innerHTML = 'Redução de Umidade'
+      }
+    
+      // Recomendações baseadas na precipitação total
+      if (forecast_media_pop_cafe < 20) {
+        descChuva1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal3)"/>
+        </svg> Baixa precipitação prevista. Aumente a irrigação para compensar a falta de chuva.`
+        document.documentElement.style.setProperty('--ideal3', 'rgb(189, 142, 13)');
+        descChuva2.innerHTML = "Planeje a aplicação de irrigação por gotejamento para uma utilização mais eficiente da água."
+        titleChuva2.innerHTML = 'Irrigação por Gotejamento'
+      } else if (forecast_media_pop_cafe >= 20 && forecast_media_pop_cafe <= 50) {
+        descChuva1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal3)"/>
+        </svg> Precipitação moderada prevista. Ajuste a irrigação conforme necessário.`
+        document.documentElement.style.setProperty('--ideal3', 'rgb(171, 189, 13)');
+        descChuva2.innerHTML = "Aproveite a umidade para aplicar fertilizantes, garantindo que eles sejam bem absorvidos."
+        titleChuva2.innerHTML = 'Aproveitamento da Umidade'
+      } else if (forecast_media_pop_cafe > 50 && forecast_media_pop_cafe <= 100) {
+        descChuva1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal3)"/>
+        </svg> Alta precipitação prevista. Verifique o sistema de drenagem para evitar encharcamento.`
+        document.documentElement.style.setProperty('--ideal3', 'rgb(189, 142, 13)');
+        descChuva2.innerHTML = "Evite a aplicação de fertilizantes que podem ser lixiviados pelas chuvas intensas."
+        titleChuva2.innerHTML = '3. Cuidado com Fertilizantes'
+      } else {
+        descChuva1.innerHTML = `<svg width="20px" style="margin-bottom:-5px;" height="20px" viewBox="-0.5 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 21.5C17.1086 21.5 21.25 17.3586 21.25 12.25C21.25 7.14137 17.1086 3 12 3C6.89137 3 2.75 7.14137 2.75 12.25C2.75 17.3586 6.89137 21.5 12 21.5Z" stroke="var(--ideal3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12.9309 8.15005C12.9256 8.39231 12.825 8.62272 12.6509 8.79123C12.4767 8.95974 12.2431 9.05271 12.0008 9.05002C11.8242 9.04413 11.6533 8.98641 11.5093 8.884C11.3652 8.7816 11.2546 8.63903 11.1911 8.47415C11.1275 8.30927 11.1139 8.12932 11.152 7.95675C11.19 7.78419 11.278 7.6267 11.405 7.50381C11.532 7.38093 11.6923 7.29814 11.866 7.26578C12.0397 7.23341 12.2192 7.25289 12.3819 7.32181C12.5446 7.39072 12.6834 7.506 12.781 7.65329C12.8787 7.80057 12.9308 7.97335 12.9309 8.15005ZM11.2909 16.5301V11.1501C11.2882 11.0556 11.3046 10.9615 11.3392 10.8736C11.3738 10.7857 11.4258 10.7057 11.4922 10.6385C11.5585 10.5712 11.6378 10.518 11.7252 10.4822C11.8126 10.4464 11.9064 10.4286 12.0008 10.43C12.094 10.4299 12.1863 10.4487 12.272 10.4853C12.3577 10.5218 12.4352 10.5753 12.4997 10.6426C12.5642 10.7099 12.6143 10.7895 12.6472 10.8767C12.6801 10.9639 12.6949 11.0569 12.6908 11.1501V16.5301C12.6908 16.622 12.6727 16.713 12.6376 16.7979C12.6024 16.8828 12.5508 16.96 12.4858 17.025C12.4208 17.09 12.3437 17.1415 12.2588 17.1767C12.1738 17.2119 12.0828 17.23 11.9909 17.23C11.899 17.23 11.8079 17.2119 11.723 17.1767C11.6381 17.1415 11.5609 17.09 11.4959 17.025C11.4309 16.96 11.3793 16.8828 11.3442 16.7979C11.309 16.713 11.2909 16.622 11.2909 16.5301Z" fill="var(--ideal3)"/>
+        </svg> Muito alta precipitação prevista. Tome medidas para proteger as plantas contra enchentes.`
+        document.documentElement.style.setProperty('--ideal3', 'rgb(189, 107, 13)');
+        descChuva2.innerHTML = "Monitore atentamente a drenagem e considere a construção de valas de escoamento temporário."
+        titleChuva2.innerHTML = '3. Monitoramento da Drenagem'
+      }
+    document.querySelector('.imgtemp2').src = `images/recommendations/${titleTemp2.innerHTML}.webp`
+    document.querySelector('.imgumi2').src = `images/recommendations/${titleUmi2.innerHTML}.webp`
+    document.querySelector('.imgchuva2').src = `images/recommendations/${titleChuva2.innerHTML}.webp`
+
     return dados_for_coffee;
 }
 
@@ -189,37 +321,26 @@ let image = document.querySelector('.weather-icon');
 let umidade = document.querySelector('.umidade');
 let pressao = document.querySelector('.pressao');
 let vento = document.querySelector('.vento');
-let tempMax = document.querySelector('.tempMax');
-let tempMin = document.querySelector('.tempMin')
 
 // display previsao do tempo atual
 const displayCurrentWeather = (weather) => {
     const descricao_atual = weather.weather[0].description;
     const vel_vento = weather.wind.speed * 3.6;
 
-    const umidadeIcon = '<i class="fas fa-tint"></i>';
-    const pressaoIcon = '<i class="fas fa-tachometer-alt"></i>';
-    const ventoIcon = '<i class="fas fa-wind"></i>';
-    const agora = new Date();
-
-    const horas = agora.getHours().toString().padStart(2, '0');
+    var now = new Date();
+    var horas = now.getHours().toString().padStart(2, '0');
     let ddd = 'd'
-    if(horas >= 18 || horas <= 6){
+    if(horas > 18 || horas < 6){
          ddd = 'n'
     }
-    image.src = `https://samuelljg.github.io/AgendaES/images/${descricao_atual}${ddd}.svg`; // top
-    nameVal.innerHTML = `Tempo Hoje em ${weather.name}, ES `;
-    desc.innerHTML = `${descricao_atual}.`;
+    image.src = `images/msn/${descricao_atual}${ddd}.svg`; // top
+    nameVal.innerHTML = `${weather.name}, Espírito Santo `;
+    desc.innerHTML = `${descricao_atual}`;
     temp.innerHTML = `${Math.round(weather.main.temp)}°`;
-    sensTerm.innerHTML = `<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-    <svg fill="red" opacity='0.7' width="20px" height="20px" viewBox="0 0 256 256" id="Flat" xmlns="http://www.w3.org/2000/svg">
-      <path d="M33.74609,76.96289a7.98611,7.98611,0,0,1,1.25635-11.21A81.79682,81.79682,0,0,1,64.05957,52.23926c16.16406-4.042,41.14941-5.04785,68.37793,13.10449,42.333,28.22363,77.12891,1.53906,78.58887.38965a8.00032,8.00032,0,0,1,9.97119,12.51367,81.79682,81.79682,0,0,1-29.05713,13.51367,81.324,81.324,0,0,1-19.71484,2.4375c-14.04053,0-30.87207-3.68164-48.66309-15.542-42.333-28.22266-77.12891-1.53906-78.58887-.38965A8.01729,8.01729,0,0,1,33.74609,76.96289ZM211.02637,121.7334c-1.46,1.14941-36.25586,27.833-78.58887-.38965-27.22852-18.15137-52.21387-17.14844-68.37793-13.10449a81.79682,81.79682,0,0,0-29.05713,13.51367,8.00032,8.00032,0,0,0,9.97119,12.51367c1.46-1.14941,36.25586-27.834,78.58887.38965,17.791,11.86035,34.62256,15.542,48.66309,15.542a83.50512,83.50512,0,0,0,48.772-15.95117,8.00032,8.00032,0,0,0-9.97119-12.51367Zm0,56c-1.46,1.15039-36.25586,27.832-78.58887-.38965-27.22852-18.15332-52.21387-17.14746-68.37793-13.10449a81.79682,81.79682,0,0,0-29.05713,13.51367,8.00032,8.00032,0,0,0,9.97119,12.51367c1.46-1.15039,36.25586-27.835,78.58887.38965,17.791,11.86035,34.62256,15.542,48.66309,15.542a83.50512,83.50512,0,0,0,48.772-15.95117,8.00032,8.00032,0,0,0-9.97119-12.51367Z"/>
-    </svg> Sensação ${Math.round(weather.main.feels_like)}°`;
-    umidade.innerHTML = `${umidadeIcon} Umidade ${weather.main.humidity}%`;
-    pressao.innerHTML = `${pressaoIcon} Pressão ${weather.main.pressure}hPa`;
-    vento.innerHTML = `${ventoIcon} Vento ${Math.round(vel_vento)}km/h`;
-    tempMax.innerHTML = ` ${Math.round(weather.main.temp_max)}°`;
-    tempMin.innerHTML = ` ${Math.round(weather.main.temp_min)}°`;
+    sensTerm.innerHTML = `Sensação Térmica ${Math.round(weather.main.feels_like)}°`;
+    umidade.innerHTML = `${weather.main.humidity} %`;
+    pressao.innerHTML = `${weather.main.pressure} mb`;
+    vento.innerHTML = `${Math.round(vel_vento)} km/h`;
 }
 
 // display previsao forecast 5/3
@@ -271,6 +392,10 @@ const displayForecast = (forecastData) => {
         cc.classList.add("cc");
         forecastDiv1.appendChild(cc);
 
+        const cc5 = document.createElement('div');
+        cc5.classList.add("cc5");
+        cc.appendChild(cc5);
+
         const cc2 = document.createElement('div');
         cc2.classList.add("cc2");
         forecastDiv2.appendChild(cc2);
@@ -280,7 +405,7 @@ const displayForecast = (forecastData) => {
 
         const dateHeader = document.createElement('h2');
         dateHeader.innerHTML = ` ${date.slice(8)}`;
-        cc.appendChild(dateHeader);
+        cc5.appendChild(dateHeader);
 
         const dateHeader2 = document.createElement('div');
         dateHeader2.innerHTML = ` ${getDayOfWeek(date)}`;
@@ -291,16 +416,16 @@ const displayForecast = (forecastData) => {
         
 
         const windElem = document.createElement('p');
-        windElem.innerHTML = `<i class="fas fa-wind"></i> ${forecastDate[date].max_vel_vento} km/h`;
+        windElem.innerHTML = `<i class="fas fa-wind"></i> Velocidade do Vento: ${forecastDate[date].max_vel_vento} km/h`;
         cc2.appendChild(windElem);
 
         const humidityElem = document.createElement('p');
-        humidityElem.innerHTML = `<i class="fas fa-tint"></i> ${forecastDate[date].media_umidade}%`;
+        humidityElem.innerHTML = `<i class="fas fa-tint"></i> Umidade: ${forecastDate[date].media_umidade}%`;
         cc2.appendChild(humidityElem);
 
         if (groupedByDate[date][0]) {
             const imageMadrugada = document.createElement('p');
-            imageMadrugada.innerHTML = `<img src='https://samuelljg.github.io/AgendaES/images/${groupedByDate[date][0].weather[0].description}n.svg'> <br> Madrugada`; // no src mudar para o icone correspondente - lua
+            imageMadrugada.innerHTML = `<img src='images/msn/${groupedByDate[date][0].weather[0].description}n.svg'> <br> Madrugada`; // no src mudar para o icone correspondente - lua
             imageMadrugada.classList.add('imageMadrugada');
             cc3.appendChild(imageMadrugada);
         }
@@ -308,11 +433,11 @@ const displayForecast = (forecastData) => {
         if (groupedByDate[date][2]) {
             
             const popElem2 = document.createElement('p');
-            popElem2.innerHTML = `<img class="weather-image" src="https://samuelljg.github.io/AgendaES/images/${groupedByDate[date][2].weather[0].description}d.svg">`;
-            cc.appendChild(popElem2);
+            popElem2.innerHTML = `<img class="weather-image" src="images/msn/${groupedByDate[date][2].weather[0].description}d.svg">`;
+            cc5.appendChild(popElem2);
             const tempElem2 = document.createElement('p');
             const tempElemM = document.createElement('div');
-            cc.appendChild(tempElemM);
+            cc5.appendChild(tempElemM);
             tempElem2.innerHTML = ` ${max_icon} ${forecastDate[date].max_temp}°`;
             tempElemM.appendChild(tempElem2);
             const tempElem = document.createElement('p');
@@ -320,17 +445,17 @@ const displayForecast = (forecastData) => {
             tempElemM.appendChild(tempElem);
 
             const imageManha = document.createElement('p');
-            imageManha.innerHTML = `<img src='https://samuelljg.github.io/AgendaES/images/${groupedByDate[date][2].weather[0].description}d.svg'> <br> Manhã`; // no src mudar para o icone certo correspondente - sol
+            imageManha.innerHTML = `<img src='images/msn/${groupedByDate[date][2].weather[0].description}d.svg'> <br> Manhã`; // no src mudar para o icone certo correspondente - sol
             imageManha.classList.add('imageManha');
             cc3.appendChild(imageManha);
         }else{
             if (groupedByDate[date][0]) {
                 const popElem2 = document.createElement('p');
-                popElem2.innerHTML = `<img class="weather-image" src="https://samuelljg.github.io/AgendaES/images/${groupedByDate[date][0].weather[0].description}d.svg">`;
-                cc.appendChild(popElem2);
+                popElem2.innerHTML = `<img class="weather-image" src="images/msn/${groupedByDate[date][0].weather[0].description}d.svg">`;
+                cc5.appendChild(popElem2);
                 const tempElem2 = document.createElement('p');
                 const tempElemM = document.createElement('div');
-                cc.appendChild(tempElemM);
+                cc5.appendChild(tempElemM);
                 
                 tempElem2.innerHTML = ` ${max_icon} ${forecastDate[date].max_temp}°`;
                 tempElemM.appendChild(tempElem2);
@@ -342,14 +467,14 @@ const displayForecast = (forecastData) => {
 
         if (groupedByDate[date][4]) {
             const imageTarde = document.createElement('p');
-            imageTarde.innerHTML = `<img src='https://samuelljg.github.io/AgendaES/images/${groupedByDate[date][4].weather[0].description}d.svg'> <br> Tarde`; // no src mudar para o icone certo correspondente - sol
+            imageTarde.innerHTML = `<img src='images/msn/${groupedByDate[date][4].weather[0].description}d.svg'> <br> Tarde`; // no src mudar para o icone certo correspondente - sol
             imageTarde.classList.add('imageTarde');
             cc3.appendChild(imageTarde);
         }
 
         if (groupedByDate[date][6]) {
             const imageNoite = document.createElement('p');
-            imageNoite.innerHTML = `<img src='https://samuelljg.github.io/AgendaES/images/${groupedByDate[date][6].weather[0].description}n.svg'> <br> Noite`; // no src mudar para o icone certo correspondente - lua
+            imageNoite.innerHTML = `<img src='images/msn/${groupedByDate[date][6].weather[0].description}n.svg'> <br> Noite`; // no src mudar para o icone certo correspondente - lua
             imageNoite.classList.add('imageNoite');
             cc3.appendChild(imageNoite);
         }
@@ -357,7 +482,7 @@ const displayForecast = (forecastData) => {
 
         const rainDiv = document.createElement('div');
         rainDiv.classList.add('rainDiv');
-        cc.appendChild(rainDiv);
+        cc5.appendChild(rainDiv);
 
         const rainBar2 = document.createElement('div');
         rainBar2.classList.add('rainBar2');
@@ -368,8 +493,14 @@ const displayForecast = (forecastData) => {
         rainBar2.appendChild(rainBar);
 
         const rainIcon = document.createElement('div');
-        const ff = `${forecastDate[date].max_chuva_mm}`
-        rainIcon.innerHTML = ` <img width='35px' style='margin-bottom:-10px;' src='https://samuelljg.github.io/AgendaES/images/rain-svgrepo-com (3).svg'> ${forecastDate[date].max_pop}% - ${ff.slice(0,4)}mm`;
+        function roundToDecimalPlaces(ff, decimalPlaces) {
+            const factor = Math.pow(10, decimalPlaces);
+            return Math.round(ff * factor) / factor;
+          }
+           
+        let ff = forecastDate[date].max_chuva_mm
+          let rounded2 = roundToDecimalPlaces(ff, 2); 
+        rainIcon.innerHTML = ` <img width='15px' style='margin:0px 5px;' src='images/heavy-rain-svgrepo-com.svg'> ${forecastDate[date].max_pop}% - ${rounded2}mm`;
         rainIcon.classList.add('rainIcon');
         rainDiv.appendChild(rainIcon);
 

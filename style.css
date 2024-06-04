@@ -7,22 +7,34 @@
     padding: 0;
 }
 
+:root {
+    --ideal:rgb(189, 142, 13);
+    --ideal2:rgb(189, 171, 13);
+    --ideal3:rgb(189, 171, 13);
+}
+
 body {
     font-family: 'DM Sans' ;
     background: rgb(236, 236, 236);
 }
 
 header {
-    background: rgb(58, 152, 46);
+    background: rgb(95, 133, 87);
     padding: 15px 20px;
     display: flex;
     justify-content: center;
 }
 
-h1 {
+main {
+    max-width: 1150px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+header h1 {
     color: white;
     white-space: nowrap;
-    font-size: 28px;
+    font-size: 26px;
 }
 
 h2 {
@@ -32,7 +44,7 @@ h2 {
 .input-box {
     position: relative;
     height: 46px;
-    max-width:640px;
+    max-width:740px;
     width: 100%;
     background: #fff;
     border-radius: 8px;
@@ -55,7 +67,7 @@ h2 {
 .input-box button {
     right: 15px;
     font-size: 14px;
-    background-color: rgb(58, 152, 46);
+    background-color: rgb(95, 133, 87);
     font-weight: 400;
     color: #fff;
     border: none;
@@ -87,15 +99,7 @@ h2 {
     margin-right: 4px;
 }
 
-
-main {
-    max-width: 1050px;
-    margin: auto;
-    border-radius: 5px;
-}
-
 .displayForecastWeather {
-    max-width: 950px;
     padding: 50px;
     border-radius: 5px;
     margin: auto;
@@ -151,20 +155,27 @@ main {
     align-items: center;
     white-space: nowrap;
     width: 160px;
+    margin-left: 20px;
 }
 
 .description_weather_day {
-    width: 500px;
+    max-width: 270px;
     text-align: left;
     align-self: end;
-    margin-left: -20px;
+    margin-left: 0px;
+}
+
+.cc5 {
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
 .rainBar2 {
-    height: 20px;
+    height: 25px;
     display: flex;
     justify-content: center;
-    width: 7px;
+    width: 5px;
     background-color: rgba(110, 110, 110, 0);
     border-radius: 100px;
     border: .5px solid rgba(0, 0, 0, 0.6);
@@ -202,7 +213,7 @@ main {
     bottom: 0;
     align-self: end;
     width: 7px;
-    background-color: rgb(0, 255, 200);
+    background-color: rgb(0, 204, 255);
     border-top: .5px solid rgba(0, 0, 0, 0.6);
     border-radius: 100px;
 }
@@ -220,13 +231,14 @@ main {
 .weather-image {
     width: 50px;
     margin-bottom: -10px;
+    margin-left: -14px;
 }
 
 
 .cc {
     display: flex;
     align-items: center;
-    gap: 35px;
+    gap: 20px;
 }
 
 .forecastItem {
@@ -252,6 +264,8 @@ main {
     padding: 2px 4px;
     padding-bottom: 0px;
     cursor: pointer;
+    position: absolute;
+    right: 15px;
 }
 .button img {
     width: 10px;
@@ -261,4 +275,177 @@ main {
 .cc3 img {
     width: 50px;
     height: 50px;
+}
+
+.card {
+    font-size: 13px;
+    font-family: 'Poppins';
+    display: inline-flex;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    height: fit-content;
+}
+
+.card h3 {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+h3 {
+    color: rgba(0, 0, 0, 0.795);
+}
+
+.card p {
+    margin-top: 4px;
+    color: rgb(112, 112, 112);
+}
+
+.desc::first-letter {
+    text-transform: uppercase;
+}
+
+.card div:last-of-type {
+    margin-top: -5px;
+}
+
+.title-temperatura2::before {
+    content: '1. ';
+    font-size: 19px;
+}
+
+.title-umidade2::before {
+    content: '2. ';
+    font-size: 19px;
+}
+
+.title-chuva2::before {
+    content: '3. ';
+    font-size: 19px;
+}
+
+.card img {
+    width: 160px;
+    height: 100px;
+    border-radius: 5px;
+    margin-bottom: -7px;
+}
+
+.actual-weather {
+    max-width: 350px; width: 100%; font-size: 16px; font-family: Poppins; color: rgba(0, 0, 0, 0.781);
+}
+
+.actual-father {
+    display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;
+}
+
+.header-nav {
+    max-width: 1150px; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+}
+
+.section-two {
+    display: flex;
+    gap: 20px;
+}
+
+.slides {
+    padding: 20px; gap: 20px; display: flex; flex-wrap: wrap; justify-content: space-between;  overflow: hidden;  
+}
+
+aside {
+    position: -webkit-sticky; 
+  position: sticky;
+  max-width: 298px;
+  top: 20px;
+}
+
+.section-child {
+    display: grid;  width: 100%; max-width: 350px;  border-radius: 5px; background: white; overflow: hidden; border: .5px solid #c7c7c77e;
+}
+
+@media only screen and (max-width: 1191px) {
+    main {
+        flex-direction: column;
+        margin: auto;
+        max-width: 800px;
+    }
+    aside {
+      position: static;
+      top: 0;
+      max-width: none;
+    }
+    .cc {
+        display: grid;
+    }
+    .button {
+        top: 40px;
+    }
+    .description_weather_day {
+        max-width: none;
+    }
+}
+@media only screen and (max-width: 840px) {
+    main {
+        margin: auto 20px;
+    }
+    .slides {
+        max-height: 390px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    main {
+        flex-direction: column;
+        margin: auto;
+        max-width: 550px;
+    }
+    .actual-weather {
+        max-width: none; 
+    }
+    .actual-father {
+        justify-content: center;
+    }
+    .section-two {
+        flex-direction: column;
+    }
+    .section-child {
+        max-width: none;
+    }
+    .slides {
+        max-height: none;
+    }
+    .cc5 {
+       flex-wrap: wrap;
+    }
+    .input-box input::placeholder {
+        font-size: 13px;
+    }
+    .cc3 p {
+        width: 50px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .header-nav {
+        flex-direction: column;
+    }
+    .input-box {
+        max-width: 550px;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    main {
+        margin: auto 10px;
+    }
+    .cc3 img {
+        width: 30px;
+        height: 30px;
+    }
+    .cc3 {
+        display: inline-flex;
+        justify-content: center;
+        gap: 10px;
+    }
+    .cc3 p {
+        width: auto;
+        font-size: 12px;
+    }
 }

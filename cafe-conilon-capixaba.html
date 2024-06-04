@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroCoffee</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="shortcut icon" href="https://samuelljg.github.io/AgendaES/favicon.ico" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <script>
+    $(function() {
+        var cidadesES = [
+            "Afonso Cláudio",
+            "Água Doce do Norte",
+            "Águia Branca",
+            "Alegre",
+            "Alfredo Chaves",
+            "Alto Rio Novo",
+            "Anchieta",
+            "Apiacá",
+            "Aracruz",
+            "Atilio Vivacqua",
+            "Baixo Guandu",
+            "Barra de São Francisco",
+            "Boa Esperança",
+            "Bom Jesus do Norte",
+            "Brejetuba",
+            "Cachoeiro de Itapemirim",
+            "Cariacica",
+            "Castelo",
+            "Colatina",
+            "Conceição da Barra",
+            "Conceição do Castelo",
+            "Divino de São Lourenço",
+            "Domingos Martins",
+            "Dores do Rio Preto",
+            "Ecoporanga",
+            "Fundão",
+            "Governador Lindenberg",
+            "Guaçuí",
+            "Guarapari",
+            "Ibatiba",
+            "Ibiraçu",
+            "Ibitirama",
+            "Iconha",
+            "Irupi",
+            "Itaguaçu",
+            "Itapemirim",
+            "Itarana",
+            "Iúna",
+            "Jaguaré",
+            "Jerônimo Monteiro",
+            "João Neiva",
+            "Laranja da Terra",
+            "Linhares",
+            "Mantenópolis",
+            "Marataízes",
+            "Marechal Floriano",
+            "Marilândia",
+            "Mimoso do Sul",
+            "Montanha",
+            "Mucurici",
+            "Muniz Freire",
+            "Muqui",
+            "Nova Venécia",
+            "Pancas",
+            "Pedro Canário",
+            "Pinheiros",
+            "Piúma",
+            "Ponto Belo",
+            "Presidente Kennedy",
+            "Rio Bananal",
+            "Rio Novo do Sul",
+            "Santa Leopoldina",
+            "Santa Maria de Jetibá",
+            "Santa Teresa",
+            "São Domingos do Norte",
+            "São Gabriel da Palha",
+            "São José do Calçado",
+            "São Mateus",
+            "São Roque do Canaã",
+            "Serra",
+            "Sooretama",
+            "Vargem Alta",
+            "Venda Nova do Imigrante",
+            "Viana",
+            "Vila Pavão",
+            "Vila Valério",
+            "Vila Velha",
+            "Vitória"
+        ];
+        $("#city").autocomplete({
+            source: cidadesES
+        });
+    });
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .slides input {
+            display: none;
+        }
+        .manual-btn {
+            border: 2px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-nav">
+            <div style="display: flex; align-items: center; gap: 7px;">
+                <a href="/" style="text-decoration: none;">
+                    <h1 style="font-weight: 500; font-family: Poppins;">
+                        AgroCoffee</h1>
+                </a><svg style="transform: rotate(37deg); margin-left: -15px;" fill="#fff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                    width="30px" height="30px"  viewBox="0 0 578.225 578.225"
+                    xml:space="preserve">
+               <g>
+                   <path d="M318.211,162.213c-87.334,68.62-67.655,135.185-51.657,165.077c-13.187,23.944-22.96,45.518-30.112,64.536
+                       c-4.351-73.354-17.278-125.421-29.854-160.161c12.374-21.305,24.843-63.973-28.142-113.603C106.919,51.067,0,84.832,0,84.832
+                       c86.12,52.536,33.306,116.796,82.955,163.299c28.735,26.918,60.234,23.858,82.83,15.338
+                       c-6.273-32.599-20.339-91.045-44.322-117.705c0,0,35.697,33.67,60.54,76.271c16.754,39.695,37.319,115.184,35.626,237.363
+                       c0.137,22.636,0.071,33.352,0.262,34.518c0.775,4.629,4.781,7.985,9.419,7.985c0.201,0,0.393,0,0.583-0.019
+                       c4.887-0.287,8.76-4.218,8.979-9.113c0.507-11.093,0.832-21.831,0.995-32.254c3.347-24.433,13.301-63.342,40.784-115.362
+                       c0.057,0.058,0.066,0.077,0.124,0.134c39.119-74.214,117.704-136.255,117.704-136.255
+                       c-37.714,35.238-65.158,117.293-78.221,163.241c31.346,15.032,76.117,23.342,120.679-11.666
+                       c76.979-60.482,9.267-159.206,139.287-223.8C578.206,136.816,429.117,75.08,318.211,162.213z"/>
+               </g>
+               </svg>
+            </div>
+            <div class="input-box">
+                <i class="uil uil-search"></i>
+                <input type="text" id="city" class="city text_city" placeholder="Busque por uma cidade do Espírito Santo...">
+                <button class="send_city" style="font-family: Poppins;">Pesquise</button>
+            </div>
+        </div>
+    </header>
+    <br>
+    <main style="display: flex; gap: 20px;">
+        
+            <div style="width: 100%; background: white; border-radius: 5px; padding: 20px; border: .5px solid #c7c7c77e;">
+                <h1 style="color: #000000bb;">O Café Conilon no Espírito Santo</h1>
+                <br><p>O café conilon, também conhecido como Coffea canephora, é uma das principais variedades de café cultivadas no Brasil, especialmente no estado do Espírito Santo. Este artigo explora a história, as características, a produção e a importância econômica do café conilon nesta região.</p>
+                
+                <br><h2>História do Café Conilon no Espírito Santo</h2>
+                <br><h3>Origens e Introdução</h3>
+                <br><p>O café conilon foi introduzido no Espírito Santo na década de 1910, vindo da África Ocidental. Adaptando-se bem ao clima tropical do estado, a cultura do conilon rapidamente se expandiu e se tornou um pilar da economia local.</p>
+                <br>
+                <div style="text-align: center;"><img style="width: 100%; border-radius: 5px; max-width:400px;" src="https://midias.agazeta.com.br/2023/08/30/aroma-capixaba---foto-com-identidade-visual-para-abre-1850253-article.jpg" alt=""></div>
+                
+                <br><h3>Expansão e Desenvolvimento</h3>
+                <br><p>Ao longo do século XX, a produção de café conilon cresceu significativamente. Os agricultores capixabas adotaram novas técnicas de cultivo e beneficiamento, aumentando a produtividade e a qualidade do café.</p>
+                
+                <br>
+                <div style="text-align: center;"><img style="width: 100%; border-radius: 5px; max-width:400px;" src="https://assets.revistacultivar.com.br/38330317-49dc-4573-b453-e3b92d4aed43.JPG" alt=""></div>
+                
+                <br><h2>Características do Café Conilon</h2>
+                <br><h3>Clima e Solo</h3>
+                <br><p>O Espírito Santo oferece condições climáticas ideais para o cultivo do conilon, com temperaturas amenas e solos férteis. A altitude das plantações varia entre 200 e 600 metros, contribuindo para a diversidade de sabores do café produzido.</p>
+                
+               
+                <br><h3>Variedades e Melhoramento Genético</h3>
+                <br><p>Existem várias cultivares de café conilon no Espírito Santo, cada uma com características específicas em termos de resistência a pragas, produtividade e sabor. O melhoramento genético tem sido um foco importante para aumentar a competitividade dos produtores.</p>
+                <br>
+                <div style="text-align: center;"><img style="width: 100%; border-radius: 5px; max-width:400px;" src="https://iica.int/sites/default/files/ckeditor-images/Laboratorio1.jpg" alt=""></div>
+                
+                <br><h2>Produção de Café Conilon</h2>
+                <br><h3>Técnicas de Cultivo</h3>
+                <br><p>Os agricultores utilizam uma combinação de métodos tradicionais e tecnológicos para maximizar a produção. A irrigação por gotejamento, a adubação equilibrada e o controle integrado de pragas são práticas comuns nas plantações capixabas.</p>
+                
+                <br>
+                <div style="text-align: center;"><img style="width: 100%; border-radius: 5px; max-width:400px;" src="https://blog.aegro.com.br/wp-content/uploads/2022/12/irrigacao-por-gotejamento-1.jpg" alt=""></div>
+                
+                <br><h3>Colheita e Processamento</h3>
+                <br><p>A colheita do conilon no Espírito Santo geralmente ocorre entre abril e setembro. O processo de colheita pode ser manual ou mecanizado, seguido pelo processamento que envolve a secagem e o beneficiamento dos grãos.</p>
+                
+                
+                
+                <br><h3>Qualidade e Exportação</h3>
+                <br><p>O Espírito Santo é conhecido pela alta qualidade do seu café conilon, que é exportado para diversos países. A certificação de qualidade e as práticas sustentáveis são fatores importantes para o reconhecimento internacional.</p>
+                
+                
+                
+                <br><h2>Importância Econômica</h2>
+                <br><h3>Geração de Empregos</h3>
+                <br><p>A cafeicultura é uma das principais atividades econômicas do Espírito Santo, gerando milhares de empregos diretos e indiretos. A produção de café conilon é essencial para a sustentabilidade econômica de muitas famílias rurais.</p>
+                
+               
+                
+                <br><h3>Desenvolvimento Regional</h3>
+                <br><p>O cultivo do conilon contribui significativamente para o desenvolvimento regional, incentivando investimentos em infraestrutura e tecnologia agrícola. Além disso, o café conilon impulsiona outros setores econômicos, como o comércio e a indústria de máquinas agrícolas.</p>
+                
+                
+                
+                <br><h2>Desafios e Perspectivas</h2>
+                <br><h3>Desafios</h3>
+                <br><p>Os produtores de café conilon enfrentam desafios como a mudança climática, pragas e doenças, além da necessidade constante de inovação tecnológica para se manterem competitivos no mercado global.</p>
+                
+                
+                
+                <br><h3>Perspectivas Futuras</h3>
+                <br><p>O futuro do café conilon no Espírito Santo é promissor, com investimentos em pesquisa e desenvolvimento, além de iniciativas de sustentabilidade que visam garantir a viabilidade econômica e ambiental da cultura.</p>
+                
+                
+
+                <br><p>O café conilon é uma parte vital da economia e da cultura do Espírito Santo. Com uma rica história, técnicas de produção avançadas e um papel crucial na geração de empregos, o café conilon continua a ser um pilar fundamental para o desenvolvimento sustentável da região.</p>
+            </div>
+            <aside style=" display: grid; border: .5px solid #c7c7c77e; border-radius: 5px; width: 100%; height: fit-content; background: white;"><div style=" display: flex; justify-content: center; padding: 15px 20px 10px 20px; font-family: Poppins; color: rgb(112, 112, 112);  border-bottom: .5px solid #ececec; "><p>CAFEICULTURA</p></div>
+            <a href="cafe-conilon-capixaba.html" style="padding: 20px; display: flex; gap: 10px; font-weight: 600; font-size: 15px;"><img src="https://agriconline.com.br/portal/wp-content/uploads/2021/10/Robustas_Amazonicos.jpg" width="100px" height="80px" style="border-radius: 5px;" alt=""><p style="font-size: 13px;">Café Conilon: saiba todas as características do café conilon capixaba.</p></a>
+            <a href="cafe-arabica-capixaba.html" style="padding: 20px; padding-top: 0; display: flex; gap: 10px; font-weight: 600; font-size: 15px;"><img src="https://agroadvance.com.br/wp-content/uploads/2023/07/cafe-arabica.png" width="100px" height="80px" style="border-radius: 5px;" alt=""><p style="font-size: 13px;">Café Arábica: saiba os melhores métodos de plantio para o café.</p></a>
+            </aside>
+    </main> 
+    <br>
+
+    <script src="app.js"></script>
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours().toString().padStart(2, '0');
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var timeString = hours + ':' + minutes;
+            document.getElementById('clock').innerText = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Inicializar o relógio imediatamente
+    </script>
+</body>
+</html>
